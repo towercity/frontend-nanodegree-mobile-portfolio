@@ -14,7 +14,7 @@ module.exports = function(grunt) {
         options: {
           engine: 'im',
           sizes: [{
-            width: 400,
+            width: 293,
             quality: 30,
             suffix: '_small'
           }]
@@ -26,9 +26,9 @@ module.exports = function(grunt) {
         */
         files: [{
           expand: true,
-          src: ['*.{gif,jpg,png}'],
-          cwd: 'images_src/',
-          dest: 'images/'
+          src: ['pizzeria.{gif,jpg,png}'],
+          cwd: 'views/images/',
+          dest: 'views/images/'
         }]
       }
     },
