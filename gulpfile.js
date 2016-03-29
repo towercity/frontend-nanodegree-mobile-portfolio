@@ -103,3 +103,36 @@ gulp.task('default', ['imagemin', 'htmlpage', 'scripts', 'styles'], function() {
 // pizza task
 gulp.task('pizza', ['imageminPizza', 'htmlpagePizza', 'scriptsPizza', 'stylesPizza'], function() {
 });
+
+// watch task
+gulp.task('watch' function() {
+    // watch for HTML changes
+    gulp.watch('./src/*.html', function() {
+        gulp.run('htmlpage');
+    });
+
+    // watch for JS changes
+    gulp.watch('./src/js/*.js', function() {
+        gulp.run('scripts');
+    });
+
+    // watch for CSS changes
+    gulp.watch('./src/css/*.css', function() {
+        gulp.run('styles');
+    });
+
+    // watch for HTML changes in Pizza
+    gulp.watch('./src/views/*.html', function() {
+        gulp.run('htmlpagePizza');
+    });
+
+    // watch for JS changes in Pizza
+    gulp.watch('./src/views/js/*.js', function() {
+        gulp.run('scriptsPizza');
+    });
+
+    // watch for CSS changes in Pizza
+    gulp.watch('./src/views/css/*.css', function() {
+        gulp.run('stylesPizza');
+    });
+});
