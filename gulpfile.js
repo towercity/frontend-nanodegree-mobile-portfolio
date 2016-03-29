@@ -96,16 +96,9 @@ gulp.task('stylesPizza', function() {
         .pipe(gulp.dest(cssDst));
 });
 
-// default task
-gulp.task('default', ['imagemin', 'htmlpage', 'scripts', 'styles'], function() {
-});
-
-// pizza task
-gulp.task('pizza', ['imageminPizza', 'htmlpagePizza', 'scriptsPizza', 'stylesPizza'], function() {
-});
-
-// watch task
-gulp.task('watch', function() {
+// default task:
+// applies minification and other build tasks to code/images then watches for additional changes
+gulp.task('default', ['imagemin', 'htmlpage', 'scripts', 'styles', 'imageminPizza', 'htmlpagePizza', 'scriptsPizza', 'stylesPizza'], function() {
     // watch for HTML changes
     gulp.watch('./src/*.html', function() {
         gulp.run('htmlpage');
