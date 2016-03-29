@@ -105,7 +105,7 @@ gulp.task('pizza', ['imageminPizza', 'htmlpagePizza', 'scriptsPizza', 'stylesPiz
 });
 
 // watch task
-gulp.task('watch' function() {
+gulp.task('watch', function() {
     // watch for HTML changes
     gulp.watch('./src/*.html', function() {
         gulp.run('htmlpage');
