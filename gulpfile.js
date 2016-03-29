@@ -1,9 +1,26 @@
 var gulp = require('gulp');
 
-var jshint = require('gulp-jshint');
+var changed = require('gulp-changed');
+var imagemin = require('gulp-imagemin');
 
-gulp.task('jshint', function() {
-  gulp.src('./src/js/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+// minify new images in main website folder
+gulp.task('imagemin', function() {
+    var imgSrc = './src/img/**/*',
+        imgDst = './build/img';
+
+    gulp.src(imgSrc)
+        .pipe(changed(imgDst))
+        .pipe(imagemin())
+        .pipe(gulp.dest(imgDst));
+});
+
+// minify new images in pizza folder
+gulp.task('imageminPizza', function() {
+    var imgSrc = './src/views/images/**/*',
+        imgDst = './build/views/images';
+
+    gulp.src(imgSrc)
+        .pipe(changed(imgDst))
+        .pipe(imagemin())
+        .pipe(gulp.dest(imgDst));
 });
